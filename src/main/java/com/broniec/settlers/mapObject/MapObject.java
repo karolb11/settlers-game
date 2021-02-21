@@ -1,8 +1,22 @@
-package com.broniec.settlers.mapObject;
+package com.broniec.settlers.entity;
 
-import lombok.AllArgsConstructor;
+import com.sun.istack.NotNull;
+import lombok.Data;
+import lombok.Getter;
 
-@AllArgsConstructor
+import javax.persistence.*;
+import java.awt.*;
+
+@Entity
+@Getter
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"cordX", "cordY"}))
 public abstract class MapObject {
-    protected final Coordinate coordinate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotNull
+    @Size()
+    private int cordX;
+    private int cordY;
 }
