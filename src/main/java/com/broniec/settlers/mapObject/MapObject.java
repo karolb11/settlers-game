@@ -16,7 +16,6 @@ public abstract class MapObject {
     private Long id;
 
     @NotNull
-    @Size()
     private int cordX;
     private int cordY;
 }
